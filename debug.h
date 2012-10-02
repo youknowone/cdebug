@@ -18,7 +18,7 @@
  *  4. DEBUG_NEWLINE for default newline insertion
  *  5. DEBUG_LOGLEVEL for dlog trigger level
  *  6. DEBUG_LOGTEST(LV) for dlog trigger test. Default is LV >= DEBUG_LOGLEVEL
- *  7. DEBUG_ASSERT for real assert in dassert
+ *  7. DEBUG_ASSERT for real assert in dassertlog
  *  8. DEBUG_PRINTF for printf function
  *  9. DEBUG_USE_NSLOG for auto NSLog flag for objc
  */
@@ -106,27 +106,27 @@
     #endif
 #endif
 
-#if DEBUG_ASSERT
-    #define __do_assert(COND) assert(COND)
+#if _DEBUG && DEBUG_ASSERT
+    #define dassert(COND) assert(COND)
 #else
-    #define __do_assert(COND)
+    #define dassert(COND)
 #endif
 
 #if _DEBUG
     #define dprintfnoln(...)        { __dprint_time __dprint_file_line DEBUG_PRINTF(__VA_ARGS__); }
-    #define dassertnoln(COND, ...)  { if (!(COND)) { dprintfnoln(__VA_ARGS__); __do_assert(COND);  } }
+    #define dassertlognoln(COND, ...) { if (!(COND)) { dprintfnoln(__VA_ARGS__); dassert(COND);  } }
     #define dlognoln(LEVEL, ...)    { if (DEBUG_LOGTEST(LEVEL)) dprintfnoln(__VA_ARGS__); }
 
     #define dprintfln(...)          { dprintfnoln(__VA_ARGS__); puts(""); }
-    #define dassertln(COND, ...)    { if (!(COND)) { dprintfln(__VA_ARGS__); __do_assert(COND);  } }
+    #define dassertlogln(COND, ...) { if (!(COND)) { dprintfln(__VA_ARGS__); dassert(COND);  } }
     #define dlogln(LEVEL, ...)      { if (DEBUG_LOGTEST(LEVEL)) dprintfln(__VA_ARGS__); }
 #else
     #define dprintfnoln(...)
-    #define dassertnoln(COND, ...)
+    #define dassertlognoln(COND, ...)
     #define dlognoln(LEVEL, ...)
 
     #define dprintfln(...)
-    #define dassertln(COND, ...)
+    #define dassertlogln(COND, ...)
     #define dlogln(LEVEL, ...)
 #endif
 
@@ -135,11 +135,11 @@
 
 #if DEBUG_NEWLINE
     #define dprintf(...)            dprintfln(__VA_ARGS__)
-    #define dassert(COND, ...)      dassertln(COND, __VA_ARGS__)
+    #define dassertlog(COND, ...)   dassertlogln(COND, __VA_ARGS__)
     #define dlog(LEVEL, ...)        dlogln(LEVEL, __VA_ARGS__)
 #else
     #define dprintf(...)            dprintfnoln(__VA_ARGS__)
-    #define dassert(COND, ...)      dassertnoln(COND, __VA_ARGS__)
+    #define dassertlog(COND, ...)   dassertlognoln(COND, __VA_ARGS__)
     #define dlog(LEVEL, ...)        dlognoln(LEVEL, __VA_ARGS__)
 #endif
 

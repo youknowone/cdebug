@@ -13,16 +13,16 @@
  *
  *  See README for more.
  *  
- * Define options if you don't like default
- * DEBUG\_WITH\_FILE to enable \_\_FILE\_\_ macro (default: enabled)
- * DEBUG\_WITH\_LINE to enable \_\_LINE\_\_ macro (default: enabled)
- * DEBUG\_WITH\_TIME to enable runtime timestamp (default: enabled)
- * DEBUG\_NEWLINE to enable newline insertion (default: enabled)
- * DEBUG\_LOGLEVEL to define dlog trigger level (default: enabled)
- * DEBUG\_LOGTEST(LV) to define dlog trigger test. (default: LV >= DEBUG\_LOGLEVEL)
- * DEBUG\_ASSERT to enable real assert in dassert (default: enabled)
- * DEBUG\_PRINTF to define printf function (default: printf in stdio.h)
- * DEBUG\_USE\_NSLOG to enable automated NSLog flag for objective-c context (default: enabled)
+ *  Define options if you don't like default
+ *  1. DEBUG_WITH_FILE to enable __FILE__ macro (default: enabled)
+ *  2. DEBUG_WITH_LINE to enable __LINE__ macro (default: enabled)
+ *  3. DEBUG_WITH_TIME to enable runtime timestamp (default: enabled)
+ *  4. DEBUG_NEWLINE to enable newline insertion (default: enabled)
+ *  5. DEBUG_LOGLEVEL to define dlog trigger level (default: enabled)
+ *  6. DEBUG_LOGTEST(LV) to define dlog trigger test. (default: LV >= DEBUG_LOGLEVEL)
+ *  7. DEBUG_ASSERT to enable real assert in dassert (default: enabled)
+ *  8. DEBUG_PRINTF to define printf function (default: printf in stdio.h)
+ *  9. DEBUG_USE_NSLOG to enable automated NSLog flag for objective-c context (default: enabled)
  */
 
 #include <stdio.h>
@@ -108,27 +108,27 @@
     #endif
 #endif
 
-#if DEBUG_ASSERT
-    #define __do_assert(COND) assert(COND)
+#if _DEBUG && DEBUG_ASSERT
+    #define dassert(COND) assert(COND)
 #else
-    #define __do_assert(COND)
+    #define dassert(COND)
 #endif
 
 #if _DEBUG
     #define dprintfnoln(...)        { __dprint_time __dprint_file_line DEBUG_PRINTF(__VA_ARGS__); }
-    #define dassertnoln(COND, ...)  { if (!(COND)) { dprintfnoln(__VA_ARGS__); __do_assert(COND);  } }
+    #define dassertlognoln(COND, ...) { if (!(COND)) { dprintfnoln(__VA_ARGS__); dassert(COND);  } }
     #define dlognoln(LEVEL, ...)    { if (DEBUG_LOGTEST(LEVEL)) dprintfnoln(__VA_ARGS__); }
 
     #define dprintfln(...)          { dprintfnoln(__VA_ARGS__); puts(""); }
-    #define dassertln(COND, ...)    { if (!(COND)) { dprintfln(__VA_ARGS__); __do_assert(COND);  } }
+    #define dassertlogln(COND, ...) { if (!(COND)) { dprintfln(__VA_ARGS__); dassert(COND);  } }
     #define dlogln(LEVEL, ...)      { if (DEBUG_LOGTEST(LEVEL)) dprintfln(__VA_ARGS__); }
 #else
     #define dprintfnoln(...)
-    #define dassertnoln(COND, ...)
+    #define dassertlognoln(COND, ...)
     #define dlognoln(LEVEL, ...)
 
     #define dprintfln(...)
-    #define dassertln(COND, ...)
+    #define dassertlogln(COND, ...)
     #define dlogln(LEVEL, ...)
 #endif
 
@@ -137,11 +137,11 @@
 
 #if DEBUG_NEWLINE
     #define dprintf(...)            dprintfln(__VA_ARGS__)
-    #define dassert(COND, ...)      dassertln(COND, __VA_ARGS__)
+    #define dassertlog(COND, ...)   dassertlogln(COND, __VA_ARGS__)
     #define dlog(LEVEL, ...)        dlogln(LEVEL, __VA_ARGS__)
 #else
     #define dprintf(...)            dprintfnoln(__VA_ARGS__)
-    #define dassert(COND, ...)      dassertnoln(COND, __VA_ARGS__)
+    #define dassertlog(COND, ...)   dassertlognoln(COND, __VA_ARGS__)
     #define dlog(LEVEL, ...)        dlognoln(LEVEL, __VA_ARGS__)
 #endif
 

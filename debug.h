@@ -7,20 +7,22 @@
 
 /*	Debug tools
  *
- *	To take benefit of this feature, do one of below:
+ *	To take advantage of this feature, do one of below:
  *	1. Insert #define DEBUG 1
  *  2. Add compiler option DDEBUG
+ *
+ *  See README for more.
  *  
- *  Defile options if you don't like default
- *  1. DEBUG_WITH_FILE for __FILE__ macro
- *  2. DEBUG_WITH_LINE for __LINE__ macro
- *  3. DEBUG_WITH_TIME for runtime timestamp
- *  4. DEBUG_NEWLINE for default newline insertion
- *  5. DEBUG_LOGLEVEL for dlog trigger level
- *  6. DEBUG_LOGTEST(LV) for dlog trigger test. Default is LV >= DEBUG_LOGLEVEL
- *  7. DEBUG_ASSERT for real assert in dassert
- *  8. DEBUG_PRINTF for printf function
- *  9. DEBUG_USE_NSLOG for auto NSLog flag for objc
+ * Define options if you don't like default
+ * DEBUG\_WITH\_FILE to enable \_\_FILE\_\_ macro (default: enabled)
+ * DEBUG\_WITH\_LINE to enable \_\_LINE\_\_ macro (default: enabled)
+ * DEBUG\_WITH\_TIME to enable runtime timestamp (default: enabled)
+ * DEBUG\_NEWLINE to enable newline insertion (default: enabled)
+ * DEBUG\_LOGLEVEL to define dlog trigger level (default: enabled)
+ * DEBUG\_LOGTEST(LV) to define dlog trigger test. (default: LV >= DEBUG\_LOGLEVEL)
+ * DEBUG\_ASSERT to enable real assert in dassert (default: enabled)
+ * DEBUG\_PRINTF to define printf function (default: printf in stdio.h)
+ * DEBUG\_USE\_NSLOG to enable automated NSLog flag for objective-c context (default: enabled)
  */
 
 #include <stdio.h>

@@ -33,10 +33,6 @@
     #define DEBUG_WITH_LINE 1
 #endif
 
-#ifndef DEBUG_WITH_TIME
-    #define DEBUG_WITH_TIME 1
-#endif
-
 #ifndef DEBUG_NEWLINE
     #define DEBUG_NEWLINE 1
 #endif
@@ -55,6 +51,14 @@
 
 #ifndef DEBUG_USE_NSLOG
     #define DEBUG_USE_NSLOG 1
+#endif
+
+#ifndef DEBUG_WITH_TIME
+    #if __OBJC__ && DEBUG_USE_NSLOG
+        #define DEBUG_WITH_TIME 0
+    #else
+        #define DEBUG_WITH_TIME 1
+    #endif
 #endif
 
 #if __OBJC__ && DEBUG_USE_NSLOG

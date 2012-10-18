@@ -25,6 +25,9 @@
  *  9. DEBUG_USE_NSLOG to enable automated NSLog flag for objective-c context (default: enabled)
  */
 
+#ifndef __DEBUG_H__
+#define __DEBUG_H__
+
 #include <stdio.h>
 
 #ifndef DEBUG_WITH_FILE
@@ -149,3 +152,4 @@
     #define dlog(LEVEL, ...)        dlognoln(LEVEL, __VA_ARGS__)
 #endif
 
+#endif

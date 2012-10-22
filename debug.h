@@ -5,10 +5,11 @@
 //  Copyright 2012 youknowone.org All rights reserved.
 //
 
-/*	Debug tools
+/*!
+ *  @header debug.h Debug tools
  *
- *	To take advantage of this feature, do one of below:
- *	1. Insert #define DEBUG 1
+ *  To take advantage of this feature, do one of below:
+ *  1. Insert #define DEBUG 1
  *  2. Add compiler option DDEBUG
  *
  *  See README for more.
@@ -30,34 +31,76 @@
 
 #include <stdio.h>
 
+/*!
+ *  @define
+ *  @brief Print file name with log or not
+ *  @details Default is 1
+ */
 #ifndef DEBUG_WITH_FILE
     #define DEBUG_WITH_FILE 1
 #endif
 
+/*!
+ *  @define
+ *  @brief Print line number with log or not
+ *  @details Default is 1
+ */
 #ifndef DEBUG_WITH_LINE
     #define DEBUG_WITH_LINE 1
 #endif
 
+/*!
+ *  @define
+ *  @brief Print new line after log or not
+ *  @details Default is 1
+ */
 #ifndef DEBUG_NEWLINE
     #define DEBUG_NEWLINE 1
 #endif
 
+/*!
+ *  @define
+ *  @brief Minimum log level to decide print log or not
+ *  @details Default is 1
+ */
 #ifndef DEBUG_LOGLEVEL
     #define DEBUG_LOGLEVEL 1
 #endif
 
+/*!
+ *  @define
+ *  @brief Log test macro
+ *  @param LV
+ *      A given level from dlog
+ *  @details Default is (LV >= DEBUG_LOGLEVEL)
+ */
 #ifndef DEBUG_LOGTEST
     #define DEBUG_LOGTEST(LV) ((LV) >= DEBUG_LOGLEVEL)
 #endif
 
+/*!
+ *  @define
+ *  @brief Trigger assert() if dassert
+ *  @details Default is 1
+ */
 #ifndef DEBUG_ASSERT
     #define DEBUG_ASSERT 1
 #endif
 
+/*!
+ *  @define
+ *  @brief Use NSLog if objc or just printf
+ *  @details Default is 1
+ */
 #ifndef DEBUG_USE_NSLOG
     #define DEBUG_USE_NSLOG 1
 #endif
 
+/*!
+ *  @define
+ *  @brief Print time with log or not
+ *  @details Default is 1 for printf and 0 for NSLog
+ */
 #ifndef DEBUG_WITH_TIME
     #if __OBJC__ && DEBUG_USE_NSLOG
         #define DEBUG_WITH_TIME 0
@@ -73,16 +116,21 @@
     #define DEBUG_DEFAULT_PRINT printf
 #endif
 
+/*!
+ *  @define
+ *  @brief printf function to use logging
+ *  @details Default is printf. If __OBJC__ and DEBUG_USE_NSLOG then NSLog
+ */
 #ifndef DEBUG_PRINTF
     #define DEBUG_PRINTF DEBUG_DEFAULT_PRINT
 #endif
 
 #ifndef NO_DEBUG
-	#if defined(DEBUG) || defined(CONFIG_Debug) || defined(CONFIG_Development)
-		#define _DEBUG 1
-	#else
-		#define _DEBUG 0
-	#endif
+    #if defined(DEBUG) || defined(CONFIG_Debug) || defined(CONFIG_Development)
+        #define _DEBUG 1
+    #else
+        #define _DEBUG 0
+    #endif
 #endif
 
 #if DEBUG_WITH_TIME
@@ -115,6 +163,12 @@
     #endif
 #endif
 
+/*!
+ *  @define
+ *  @brief Assertion only for debug mode.
+ *  @param COND
+ *      Condition to be passed to assert()
+ */
 #if _DEBUG && DEBUG_ASSERT
     #define dassert(COND) assert(COND)
 #else
@@ -122,12 +176,56 @@
 #endif
 
 #if _DEBUG
+    /*!
+     *  @define
+     *  @brief Debug mode printf without newline
+     *  @param ...
+     *      printf params
+     */
     #define dprintfnoln(...)        { __dprint_time __dprint_file_line DEBUG_PRINTF(__VA_ARGS__); }
+    /*!
+     *  @define
+     *  @brief Debug mode assert with log without newline
+     *  @param COND
+     *      assert() condition
+     *  @param ...
+     *      printf params
+     */
     #define dassertlognoln(COND, ...) { if (!(COND)) { dprintfnoln(__VA_ARGS__); dassert(COND);  } }
+    /*!
+     *  @define
+     *  @brief Conditional log with level without newline
+     *  @param LEVEL
+     *      Log level
+     *  @param ...
+     *      printf params
+     */
     #define dlognoln(LEVEL, ...)    { if (DEBUG_LOGTEST(LEVEL)) dprintfnoln(__VA_ARGS__); }
-
+    
+    /*!
+     *  @define
+     *  @brief Debug mode printf without newline
+     *  @param ...
+     *      printf params
+     */
     #define dprintfln(...)          { dprintfnoln(__VA_ARGS__); puts(""); }
+    /*!
+     *  @define
+     *  @brief Debug mode assert with log with newline
+     *  @param COND
+     *      assert() condition
+     *  @param ...
+     *      printf params
+     */
     #define dassertlogln(COND, ...) { if (!(COND)) { dprintfln(__VA_ARGS__); dassert(COND);  } }
+    /*!
+     *  @define
+     *  @brief Conditional log with level with newline
+     *  @param LEVEL
+     *      Log level
+     *  @param ...
+     *      printf params
+     */
     #define dlogln(LEVEL, ...)      { if (DEBUG_LOGTEST(LEVEL)) dprintfln(__VA_ARGS__); }
 #else
     #define dprintfnoln(...)
@@ -139,16 +237,43 @@
     #define dlogln(LEVEL, ...)
 #endif
 
-#define dprintfln(...) { dprintfnoln(__VA_ARGS__); puts(""); }
-
-
+/*!
+ *  @define
+ *  @brief dprintf with or without newline by DEBUG_NEWLINE
+ *  @param ...
+ *      printf params
+ */
 #if DEBUG_NEWLINE
     #define dprintf(...)            dprintfln(__VA_ARGS__)
-    #define dassertlog(COND, ...)   dassertlogln(COND, __VA_ARGS__)
-    #define dlog(LEVEL, ...)        dlogln(LEVEL, __VA_ARGS__)
 #else
     #define dprintf(...)            dprintfnoln(__VA_ARGS__)
+#endif
+
+/*!
+ *  @define
+ *  @brief dassertlog with or without newline by DEBUG_NEWLINE
+ *  @param COND
+ *      assert() condition
+ *  @param ...
+ *      printf params
+ */
+#if DEBUG_NEWLINE
+    #define dassertlog(COND, ...)   dassertlogln(COND, __VA_ARGS__)
+#else
     #define dassertlog(COND, ...)   dassertlognoln(COND, __VA_ARGS__)
+#endif
+
+/*!
+ *  @define
+ *  @brief dlog with or without newline by DEBUG_NEWLINE
+ *  @param LEVEL
+ *      Log level
+ *  @param ...
+ *      printf params
+ */
+#if DEBUG_NEWLINE
+    #define dlog(LEVEL, ...)        dlogln(LEVEL, __VA_ARGS__)
+#else
     #define dlog(LEVEL, ...)        dlognoln(LEVEL, __VA_ARGS__)
 #endif
 

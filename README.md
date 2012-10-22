@@ -3,6 +3,8 @@ cdebug is tiny debug utility for C/Objective-C code
  * Functions are enabled/disabled by debug macro 'DEBUG'
  * Conditional log, assertion with log
 
+See document on [Github] (http://youknowone.github.com/cdebug)
+
 # How to setup
 To take advantage of this feature, do one of below:
  * Insert #define DEBUG 1

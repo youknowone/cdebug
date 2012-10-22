@@ -8,6 +8,8 @@
 /*!
  *  @header debug.h Debug tools
  *
+ *  Project website: <a href="https://github.com/youknowone/cdebug">https://github.com/youknowone/cdebug</a>
+ *
  *  To take advantage of this feature, do one of below:
  *  1. Insert #define DEBUG 1
  *  2. Add compiler option DDEBUG

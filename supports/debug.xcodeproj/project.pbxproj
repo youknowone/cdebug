@@ -29,8 +29,8 @@
 		38A90F70163506F8001DB09E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		38A90F71163506F8001DB09E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		38A90F72163506F8001DB09E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		38A90F75163506F8001DB09E /* debug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "debug-Info.plist"; path = "debug/debug-Info.plist"; sourceTree = "<group>"; };
-		38A90F7A163506F8001DB09E /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = debug.h; path = ../debug.h; sourceTree = "<group>"; };
+		38A90F75163506F8001DB09E /* debug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "debug-Info.plist"; sourceTree = "<group>"; };
+		38A90F7A163506F8001DB09E /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = debug.h; path = ../../debug.h; sourceTree = "<group>"; };
 		38A90F82163506F8001DB09E /* debugTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = debugTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38A90F83163506F8001DB09E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		38A90F8B163506F8001DB09E /* debugTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "debugTests-Info.plist"; sourceTree = "<group>"; };

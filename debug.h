@@ -9,6 +9,7 @@
  *  @header debug.h Debug tools
  *
  *  Project website: <a href="https://github.com/youknowone/cdebug">https://github.com/youknowone/cdebug</a>
+ *  Document website: <a href="http://youknowone.github.com/cdebug">http://youknowone.github.com/cdebug</a>
  *
  *  To take advantage of this feature, do one of below:
  *  1. Insert #define DEBUG 1

@@ -1,7 +1,7 @@
 //
 //  debug.h
 //
-//  Created by youknowone on 12. 10. 2..
+//  Created by Jeong YunWon on 12. 10. 2..
 //  Copyright 2012 youknowone.org All rights reserved.
 //
 

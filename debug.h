@@ -173,6 +173,7 @@
  *      Condition to be passed to assert()
  */
 #if _DEBUG && DEBUG_ASSERT
+    #include <assert.h>
     #define dassert(COND) assert(COND)
 #else
     #define dassert(COND)

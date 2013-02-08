@@ -3,7 +3,7 @@
 
 #import "debug.h"
 
-@interface __cocoapod_cdebug
+@interface __cocoapod_cdebug: NSObject
 
 @end
 

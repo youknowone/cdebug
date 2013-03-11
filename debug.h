@@ -16,7 +16,7 @@
  *  2. Add compiler option DDEBUG
  *
  *  See README for more.
- *  
+ *
  *  Define options if you don't like default
  *  1. DEBUG_WITH_FILE to enable __FILE__ macro (default: enabled)
  *  2. DEBUG_WITH_LINE to enable __LINE__ macro (default: enabled)
@@ -205,7 +205,7 @@
      *      printf params
      */
     #define dlognoln(LEVEL, ...)    { if (DEBUG_LOGTEST(LEVEL)) dprintfnoln(__VA_ARGS__); }
-    
+
     /*!
      *  @define
      *  @brief Debug mode printf without newline

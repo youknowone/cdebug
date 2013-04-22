@@ -37,4 +37,14 @@
     dassertlog(true, @"This will now shown");
 }
 
+- (void)testOutput
+{
+    dlog(1, @"-----------------------");
+    dlog(1, @"Is this formatted well? %@", @"yay!");
+    for (int i = 0; i < 3; i++) {
+        dlog(1, @"\tNumber test: %d", i);
+    }
+    dlog(1, @"-----------------------");
+}
+
 @end

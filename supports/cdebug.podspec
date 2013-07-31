@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                     Debug log/assertion macro collections for debug mode only.
                     Append file, line, time to macro
-                    
+
                     * dprintf as printf/NSLog wrapper
                     * dassert as asssert wrapper
                     * dlog for conditional dprintf

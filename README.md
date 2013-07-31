@@ -1,6 +1,9 @@
-cdebug is tiny debug utility for C/Objective-C code
+`cdebug` is tiny debug utility for C/Objective-C
 
- * Functions are enabled/disabled by debug macro 'DEBUG'
+`cdebug` is designed to allow C/Objective-C developers to enable debug mode
+log/assertion with a single file.
+
+ * Functions can be effortlessly enabled/disabled by debug macro '`DEBUG`'
  * Conditional log, assertion with log
 
 See document on [Github] (http://youknowone.github.com/cdebug)

@@ -29,7 +29,7 @@
 - (void)testCrash
 {
     if (!_DEBUG) {
-        STFail(@"Not debug mode");
+        XCTFail(@"Not debug mode");
     }
     dprintf(@"Hello %@", @"World");
     dlog(1, @"Hello %@", @"World");

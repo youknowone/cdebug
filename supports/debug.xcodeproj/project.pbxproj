@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		38A90F6E163506F8001DB09E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A90F6D163506F8001DB09E /* Cocoa.framework */; };
-		38A90F84163506F8001DB09E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A90F83163506F8001DB09E /* SenTestingKit.framework */; };
 		38A90F91163506F8001DB09E /* debugTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38A90F90163506F8001DB09E /* debugTests.mm */; };
 		38A90FA5163508B1001DB09E /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 38A90F7A163506F8001DB09E /* debug.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -31,8 +30,7 @@
 		38A90F72163506F8001DB09E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		38A90F75163506F8001DB09E /* debug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "debug-Info.plist"; sourceTree = "<group>"; };
 		38A90F7A163506F8001DB09E /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = debug.h; path = ../../debug.h; sourceTree = "<group>"; };
-		38A90F82163506F8001DB09E /* debugTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = debugTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		38A90F83163506F8001DB09E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		38A90F82163506F8001DB09E /* debugTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = debugTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38A90F8B163506F8001DB09E /* debugTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "debugTests-Info.plist"; sourceTree = "<group>"; };
 		38A90F8F163506F8001DB09E /* debugTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debugTests.h; sourceTree = "<group>"; };
 		38A90F90163506F8001DB09E /* debugTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = debugTests.mm; sourceTree = "<group>"; };
@@ -51,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38A90F84163506F8001DB09E /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				38A90F6A163506F8001DB09E /* debug.framework */,
-				38A90F82163506F8001DB09E /* debugTests.octest */,
+				38A90F82163506F8001DB09E /* debugTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				38A90F6D163506F8001DB09E /* Cocoa.framework */,
-				38A90F83163506F8001DB09E /* SenTestingKit.framework */,
 				38A90F6F163506F8001DB09E /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -180,8 +176,8 @@
 			);
 			name = debugTests;
 			productName = debugTests;
-			productReference = 38A90F82163506F8001DB09E /* debugTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 38A90F82163506F8001DB09E /* debugTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -352,24 +348,30 @@
 		38A90F98163506F8001DB09E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "debugTests/debugTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
 		38A90F99163506F8001DB09E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "debugTests/debugTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

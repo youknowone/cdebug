@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 youknowone.org. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface debugTests : SenTestCase
+@interface debugTests : XCTestCase
 
 @end

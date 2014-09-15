@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
                     * Everythings are activated when debug mode only
                    DESC
   s.homepage     = "https://github.com/youknowone/cdebug"
+  s.requires_arc = false
 
   s.license      = { :type => '2-clause BSD', :file => 'LICENSE' }
   s.author       = { "Jeong YunWon" => "jeong@youknowone.org" }

@@ -32,7 +32,6 @@
 		38A90F7A163506F8001DB09E /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = debug.h; path = ../../debug.h; sourceTree = "<group>"; };
 		38A90F82163506F8001DB09E /* debugTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = debugTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38A90F8B163506F8001DB09E /* debugTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "debugTests-Info.plist"; sourceTree = "<group>"; };
-		38A90F8F163506F8001DB09E /* debugTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debugTests.h; sourceTree = "<group>"; };
 		38A90F90163506F8001DB09E /* debugTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = debugTests.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +112,6 @@
 		38A90F89163506F8001DB09E /* debugTests */ = {
 			isa = PBXGroup;
 			children = (
-				38A90F8F163506F8001DB09E /* debugTests.h */,
 				38A90F90163506F8001DB09E /* debugTests.mm */,
 				38A90F8A163506F8001DB09E /* Supporting Files */,
 			);

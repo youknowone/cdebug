@@ -6,9 +6,15 @@
 //  Copyright (c) 2012 youknowone.org. All rights reserved.
 //
 
+
+#import <XCTest/XCTest.h>
 #import "debug.h"
 
-#import "debugTests.h"
+
+@interface debugTests : XCTestCase
+
+@end
+
 
 @implementation debugTests
 

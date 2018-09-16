@@ -113,7 +113,11 @@
 #endif
 
 #if __OBJC__ && DEBUG_USE_NSLOG
-    #import <Foundation/Foundation.h>
+    #ifdef __cplusplus
+        #import <Foundation/Foundation.h>
+    #else
+        @import Foundation;
+    #endif
     #define DEBUG_DEFAULT_PRINT NSLog
 #else
     #define DEBUG_DEFAULT_PRINT printf

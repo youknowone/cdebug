@@ -1,5 +1,5 @@
 //
-//  debugTests.m
+//  debugTests.mm
 //  debugTests
 //
 //  Created by Jeong YunWon on 12. 10. 22..
@@ -7,8 +7,8 @@
 //
 
 
-#import <XCTest/XCTest.h>
-#import "debug.h"
+@import XCTest;
+@import debug;
 
 
 @interface debugTests : XCTestCase

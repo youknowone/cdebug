@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		38A90F6E163506F8001DB09E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A90F6D163506F8001DB09E /* Cocoa.framework */; };
-		38A90F91163506F8001DB09E /* debugTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38A90F90163506F8001DB09E /* debugTests.mm */; };
+		38A90F91163506F8001DB09E /* debugCppTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38A90F90163506F8001DB09E /* debugCppTests.mm */; };
 		38A90FA5163508B1001DB09E /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 38A90F7A163506F8001DB09E /* debug.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38F85959215BB56300CD80AE /* debugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F85958215BB56300CD80AE /* debugTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +33,8 @@
 		38A90F7A163506F8001DB09E /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = debug.h; path = ../../debug.h; sourceTree = "<group>"; };
 		38A90F82163506F8001DB09E /* debugTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = debugTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38A90F8B163506F8001DB09E /* debugTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "debugTests-Info.plist"; sourceTree = "<group>"; };
-		38A90F90163506F8001DB09E /* debugTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = debugTests.mm; sourceTree = "<group>"; };
+		38A90F90163506F8001DB09E /* debugCppTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = debugCppTests.mm; sourceTree = "<group>"; };
+		38F85958215BB56300CD80AE /* debugTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = debugTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +114,8 @@
 		38A90F89163506F8001DB09E /* debugTests */ = {
 			isa = PBXGroup;
 			children = (
-				38A90F90163506F8001DB09E /* debugTests.mm */,
+				38F85958215BB56300CD80AE /* debugTests.m */,
+				38A90F90163506F8001DB09E /* debugCppTests.mm */,
 				38A90F8A163506F8001DB09E /* Supporting Files */,
 			);
 			path = debugTests;
@@ -232,7 +235,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38A90F91163506F8001DB09E /* debugTests.mm in Sources */,
+				38A90F91163506F8001DB09E /* debugCppTests.mm in Sources */,
+				38F85959215BB56300CD80AE /* debugTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

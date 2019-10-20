@@ -113,10 +113,10 @@
 #endif
 
 #if __OBJC__ && DEBUG_USE_NSLOG
-    #if __has_feature(modules)
-        @import Foundation;
-    #else
+    #ifdef __cplusplus
         #import <Foundation/Foundation.h>
+    #else
+        @import Foundation;
     #endif
     #define DEBUG_DEFAULT_PRINT NSLog
 #else
@@ -283,15 +283,6 @@
     #define dlog(LEVEL, ...)        dlogln(LEVEL, __VA_ARGS__)
 #else
     #define dlog(LEVEL, ...)        dlognoln(LEVEL, __VA_ARGS__)
-#endif
-
-
-#if __has_feature(modules)
-//! Project version number for debug.
-FOUNDATION_EXPORT double debugVersionNumber;
-
-//! Project version string for debug.
-FOUNDATION_EXPORT const unsigned char debugVersionString[];
 #endif
 
 #endif
